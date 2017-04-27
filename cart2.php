@@ -63,7 +63,7 @@ if (isset($_SESSION['PRODUCTCART'])) {
         <div class="clearfix"></div>
 
         <a href="cart1.php">Go Back </a>
-        <a href="cart3.php" class="pull-right">Clear Cart </a>
+        <a href="cart3.php" class="btn btn-danger btn-sm pull-right">Clear Cart </a>
 
       </div>
     </div>
