@@ -95,8 +95,13 @@ if (isset($_SESSION['PRODUCTCART'])) {
 <body>
   <div class="container">
     <div class="row">
+      <div class="pull-left">
+        <h4>COMPANY CODE : <?php echo $_SESSION['COMPANYCODE']; ?></h4>
+      </div>
       <div class="pull-right">
-        <h4>
+        <a href="login.php">Logout</a>
+        &nbsp;&nbsp; 
+        <h4 style="display: inline-block;">
           <a href="cart2.php"><span id="label-cart-total" class="label label-primary">Cart : <?php echo $total_count; ?> Items</span></a>
         </h4>
       </div>

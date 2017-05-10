@@ -25,6 +25,9 @@ if (isset($_SESSION['PRODUCTCART'])) {
 <body>
   <div class="container">
     <div class="row">
+      <div class="pull-left">
+        <h4>COMPANY CODE : <?php echo $_SESSION['COMPANYCODE']; ?></h4>
+      </div>
       <div class="pull-right">
         <h4><span id="label-cart-total" class="label label-primary">Cart : <?php echo $total_count; ?> Items</span></h4>
       </div>
