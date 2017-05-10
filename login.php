@@ -16,11 +16,11 @@ if (isset($_POST) && !empty($_POST['submit'])) {
   }
 
   // แบบที่ 1
-  // $_SESSION['COMPANYCODE'] = 'POSCOM001';
-  // header('location: cart1.php');
+  $_SESSION['COMPANYCODE'] = 'POSCOM001';
+  header('location: cart1.php');
 
   // แบบที่ 2 (ไม่แนะนำ)
-  header('location: cart1.php?compcode=POSCOM001');
+  // header('location: cart1.php?compcode=POSCOM001');
 
   exit();
 }
