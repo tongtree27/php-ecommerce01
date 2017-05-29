@@ -33,7 +33,7 @@ error_reporting( E_CORE_ERROR | E_CORE_WARNING | E_COMPILE_ERROR | E_ERROR | E_W
         .done(function(response) {
           // console.log("success");
           // console.log(response);
-          for (var key in response) {
+          for (var key = 0; key < response.length; key++) {
             var item = response[key];
             // console.log(response[key]);
             var html = '<div class="col-sm-4 item">';
@@ -42,10 +42,21 @@ error_reporting( E_CORE_ERROR | E_CORE_WARNING | E_COMPILE_ERROR | E_ERROR | E_W
             html += '<h3>'+ item.title +'</h3>';
             html += '<p>'+ item.description +'</p>';
             html += '<h3><span class="label label-danger">Price : '+ item.price +'</span></h3>';
-            html += '<button type="submit" id="btn-addcart'+ key +'" name="btn-addcart" value="'+ key +'" class="btn btn-primary btn-addcart">Add Cart</button>';
+            html += '<p>จำนวนสินค้าทั้งหมด &nbsp; <strong>'+ item.qty +'</strong> &nbsp; ชิ้น </p>';
+            html += '<input type="radio" id="vatinclude-'+ key +'-01" name="vatinclude-'+ key +'" value="I" /> &nbsp; รวมภาษี <br />';
+            html += '<input type="radio" id="vatinclude-'+ key +'-02" name="vatinclude-'+ key +'" value="Y" /> &nbsp; คิดภาษี <br />';
+            html += '<input type="radio" id="vatinclude-'+ key +'-03" name="vatinclude-'+ key +'" value="N" /> &nbsp; ไม่คิดภาษี <br />';
             html += '</div></div>';
 
-            $('#product_list').after(html);
+            $('#product_list').append(html);
+
+            if (item.vatinclude === 'I') {
+              $('#vatinclude-'+ key +'-01')[0].checked = true;
+            } else if (item.vatinclude === 'Y') {
+              $('#vatinclude-'+ key +'-02')[0].checked = true;
+            } else if (item.vatinclude === 'N') {
+              $('#vatinclude-'+ key +'-03')[0].checked = true;
+            }
           }
         })
         .fail(function(xhr, ajaxOptions, thrownError) {
